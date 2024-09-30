@@ -10,14 +10,17 @@ import {
   BackHandler,
 } from "react-native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation } from "@/hooks/useNavigation";
+import { useFocusEffect } from "@react-navigation/native";
+
 import Spacing from "@/contants/Spacing";
 import FontSize from "@/contants/FontSize";
 import Colors from "@/contants/Colors";
 import Font from "@/contants/Font";
-import { Ionicons } from "@expo/vector-icons";
 import AppTextInput from "@/components/AppTextInput";
-import { useNavigation } from "@/hooks/useNavigation";
-import { useFocusEffect } from "@react-navigation/native";
+
+import { handleLogin } from "./LoginUtils";
 
 const LoginScreen: React.FC = () => {
   const [userName, setUserName] = useState('');
@@ -65,6 +68,16 @@ const LoginScreen: React.FC = () => {
         <TouchableOpacity
           style={styles.signInButton}
           disabled={loading}
+          onPress={async () => {
+            setLoading(true);
+            try {
+              await handleLogin(navigation);
+            } catch (error) {
+              Alert.alert("Error", "Invalid username or password");
+            } finally {
+              setLoading(false);
+            }
+          }}
         >
           {loading ? (
             <ActivityIndicator size="small" color="#fff" />

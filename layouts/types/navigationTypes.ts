@@ -1,3 +1,5 @@
+import { Book } from "@/screens/Home/HomeScreen";
+
 export type RootStackParamList = {
   Main: {
     screen: keyof BottomTabParamList;
@@ -6,21 +8,7 @@ export type RootStackParamList = {
   LoginScreen: undefined;
   RegisterScreen: undefined;
   WelcomeScreen: undefined;
-  AuthLoadingScreen: undefined;
-  SearchResults: { query: string };
-  ProductDetail: undefined;
-  PackageDetail: { id: string };
-  CartScreen: undefined;
-  ProfileScreen: undefined;
-  OrderScreen: undefined;
-  OrderDetail: { orderId: string };
-  OrderForm: undefined;
-  OrderResult: { orderData: string } | { vnpayData: string };
-  AddressScreen: undefined;
-  AddAddressScreen: undefined;
-  FilterResults: { brandName: string };
-  EditProfileScreen: undefined;
-  ChangePasswordScreen: undefined;
+  DetailScreen: { book: Book };
 };
 
 export type BottomTabParamList = {

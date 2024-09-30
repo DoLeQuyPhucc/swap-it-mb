@@ -9,12 +9,13 @@ import CustomBottomTab, { TabBarProps } from './BottomBar';
 import fonts from '@/config/fonts';
 import { Ionicons } from '@expo/vector-icons';
 import { RootStackParamList } from './types/navigationTypes';
-import WelcomeScreen from '@/screens/WelcomeScreen';
-import LoginScreen from '@/screens/LoginScreen';
-import RegisterScreen from '@/screens/RegisterScreen';
-import HomeScreen from '@/screens/HomeScreen';
-import NotificationScreen from '@/screens/NotificationScreen';
-import ProfileScreen from '@/screens/ProfileScreen';
+import WelcomeScreen from '@/screens/Welcome/WelcomeScreen';
+import LoginScreen from '@/screens/Login/LoginScreen';
+import RegisterScreen from '@/screens/Register/RegisterScreen';
+import HomeScreen from '@/screens/Home/HomeScreen';
+import NotificationScreen from '@/screens/Notification/NotificationScreen';
+import ProfileScreen from '@/screens/Profile/ProfileScreen';
+import DetailScreen from '@/screens/Detail/DetailScreen';
 
 const Stack = createStackNavigator<RootStackParamList>();
 
@@ -25,7 +26,7 @@ const tabBarProps: TabBarProps[] = [
     tabBarLabel: 'Home',
     tabBarIconProps: {
       iconType: Ionicons,
-      iconName: 'home-outline',
+      iconName: 'home',
     },
   },
   {
@@ -34,7 +35,7 @@ const tabBarProps: TabBarProps[] = [
     tabBarLabel: 'Notifitcations',
     tabBarIconProps: {
       iconType: Ionicons,
-      iconName: 'notifications-outline',
+      iconName: 'notifications',
     },
   },
   {
@@ -43,7 +44,7 @@ const tabBarProps: TabBarProps[] = [
     tabBarLabel: 'Profile',
     tabBarIconProps: {
       iconType: Ionicons,
-      iconName: 'person-outline',
+      iconName: 'person',
     },
   },
 ];
@@ -85,6 +86,7 @@ export default function Navigation() {
           <Stack.Screen name="LoginScreen" component={LoginScreen} options={{ headerShown: false }} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} options={{ headerShown: false }} />
           <Stack.Screen name="WelcomeScreen" component={WelcomeScreen} options={{ headerShown: false }} />
+          <Stack.Screen name="DetailScreen" component={DetailScreen} options={{ headerShown: false, headerBackTitleVisible: false }} />
         </Stack.Navigator>
     </NavigationContainer>
   );

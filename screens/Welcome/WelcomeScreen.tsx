@@ -29,7 +29,7 @@ const WelcomeScreen: React.FC = () => {
             height: height / 2.4,
           }}
           resizeMode="contain"
-          source={require("../assets/images/logo.png")}
+          source={require("../../assets/images/logo.png")}
         />
         <View
           style={{
